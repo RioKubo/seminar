@@ -1,0 +1,56 @@
+{{ block title }}
+第{{ player.round_number }}ゲーム：あなたの選択
+{{ endblock }}
+
+{{ block content }}
+
+{{ if player.round_number == 2 or player.round_number == 3 }}
+<div style="
+    background-color: #d9f3f8;
+    border-radius: 8px;
+    padding: 18px;
+    margin-bottom: 24px;
+">
+    <h4 style="margin-top: 0;">🤖 AIからの助言</h4>
+    <p style="margin-bottom: 8px;">
+        {{ advice }}
+    </p>
+    <p style="margin-bottom: 0;">
+        この助言を参考にするかどうかは、あなたが自由に決められます。
+    </p>
+</div>
+{{ endif }}
+
+
+{{ if player.round_number == 1 }}
+
+<p>
+
+</p>
+
+{{ elif player.round_number == 2 }}
+
+<p>
+    相手がAIの助言を受け取っているかどうかは
+    分かりません。
+</p>
+
+{{ elif player.round_number == 3 }}
+
+<p>
+    あなたと相手には同じAIの助言が表示されています。
+    また、そのことを双方に知らせています。
+</p>
+
+{{ endif }}
+
+    <h4>質問1：相手への予想</h4>
+    {{ formfield player.belief }}
+
+    <h4>質問2：あなたの選択</h4>
+    {{ formfield player.decision }}
+
+
+{{ next_button }}
+
+{{ endblock }}

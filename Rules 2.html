@@ -1,0 +1,62 @@
+{{ block title }}
+第{{ player.round_number }}ゲーム：ルール説明
+{{ endblock }}
+
+{{ block content }}
+
+<p>
+あなたはランダムに選ばれた相手とペアになります。
+あなたと相手は、それぞれ「協力する」か「安全策を選ぶ」かを選択します。
+</p>
+
+<p>
+得点は以下のように決まります。
+</p>
+
+<table class="table table-bordered text-center" style="max-width: 500px;">
+    <tr>
+        <th></th>
+        <th>相手：協力する</th>
+        <th>相手：安全策を選ぶ</th>
+    </tr>
+    <tr>
+        <th>あなた：協力する</th>
+        <td>10 / 10</td>
+        <td>0 / 6</td>
+    </tr>
+    <tr>
+        <th>あなた：安全策を選ぶ</th>
+        <td>6 / 0</td>
+        <td>6 / 6</td>
+    </tr>
+</table>
+
+<p>
+{{ condition_text }}
+</p>
+
+{{ if player.round_number == 2 or player.round_number == 3 }}
+<div style="
+    background-color: #d9f3f8;
+    border-radius: 8px;
+    padding: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+">
+    <h4 style="margin-top: 0;">🤖 AIからの助言</h4>
+    <p style="margin-bottom: 8px;">
+        {{ ai_advice_text }}
+    </p>
+    <p style="margin-bottom: 0;">
+        この助言を参考にするかどうかは、あなたが自由に決められます。
+    </p>
+</div>
+{{ endif }}
+
+<p>
+結果は表示されません。内容を確認したら次に進んでください。
+</p>
+
+{{ next_button }}
+
+{{ endblock }}

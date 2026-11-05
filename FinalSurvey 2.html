@@ -1,0 +1,40 @@
+{{ block title }}
+最後のアンケート
+{{ endblock }}
+
+{{ block content }}
+
+<p>
+3回のゲームが終了しました。最後にアンケートにお答えください。
+</p>
+
+<h4>あなたの回答の振り返り</h4>
+
+<table class="table table-bordered" style="max-width: 700px;">
+    <tr>
+        <th>ゲーム</th>
+        <th>相手が協力すると予想した確率</th>
+        <th>あなたの選択</th>
+    </tr>
+    <tr>
+        <td>第1ゲーム</td>
+        <td>{{ belief_r1 }}%</td>
+        <td>{{ choice_r1 }}</td>
+    </tr>
+    <tr>
+        <td>第2ゲーム</td>
+        <td>{{ belief_r2 }}%</td>
+        <td>{{ choice_r2 }}</td>
+    </tr>
+    <tr>
+        <td>第3ゲーム</td>
+        <td>{{ belief_r3 }}%</td>
+        <td>{{ choice_r3 }}</td>
+    </tr>
+</table>
+
+{{ formfields }}
+
+{{ next_button }}
+
+{{ endblock }}
